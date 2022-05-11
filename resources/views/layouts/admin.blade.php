@@ -27,21 +27,19 @@
     <link href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet">
 
 </head>
-<body class="g-sidenav-show  bg-gray-200">
+<body class="g-sidenav-show  bg-gray-200 ">
     
     @include('layouts.inc.sidebar')
 
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    {{-- <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg "> --}}
+    <main class="main-content d-flex flex-column min-vh-100 border-radius-lg ">
 
         @include('layouts.inc.adminnavbar')
 
         <div class="container-fluid py-4">
-
-            @yield('content')
-
-            @include('layouts.inc.adminfooter')
-
-        </div>
+                @yield('content')  
+        </div> 
+        @include('layouts.inc.adminfooter')
     </main>
    
      <!--   Core JS Files   -->
