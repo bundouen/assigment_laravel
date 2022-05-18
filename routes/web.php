@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\CategoryController;
+use App\Http\Controllers\Frontend\ImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.index');
-     });
-    
+    Route::get('/dashboard', [FrontendController::class, 'index']);
+    Route::get('category',[CategoryController::class,'index']);
+    Route::get('import',[ImportController::class,'index']);
 });
