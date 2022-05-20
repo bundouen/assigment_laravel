@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
@@ -33,9 +34,28 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $category=new Category();
+        
+        if($req->hasFile('photo')){
+           $file=$req->file('photo');
+           $ext=$file->getClientOriginalExtension();
+           $filename=time().'.'. $ext;
+          
+           $file->move('asset/uploads/category/', $filename);
+           $category->image=$filename;
+        }
+        $category->name=$req->input('name');
+        $category->slug=$req->input('slug');
+        $category->description=$req->input('description');
+        $category->status=$req->input('status')== TRUE ? '1':'';
+        $category->popular=$req->input('popular')== TRUE ? '1':'';
+        $category->meta_title=$req->input('meta_title');
+        $category->meta_descrip=$req->input('meta_descrip');
+        $category->meta_keywords=$req->input('meta_keywords');
+        $category->save();
+        return redirect('/dashboard')->with('status','Insert to category successfully');
     }
 
     /**
