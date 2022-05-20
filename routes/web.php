@@ -28,5 +28,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [FrontendController::class, 'index']);
     Route::get('category',[CategoryController::class,'index']);
+    Route::get('create_category',[CategoryController::class,'create']);
     Route::get('import',[ImportController::class,'index']);
 });

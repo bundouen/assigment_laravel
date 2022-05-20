@@ -25,7 +25,7 @@
   <!-- CSS Files -->
     <link href="{{ asset('admin/css/material-dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet">
-
+     
 </head>
 <body class="g-sidenav-show  bg-gray-200 ">
     
