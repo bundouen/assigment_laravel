@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
@@ -15,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view("admin.category.index");
+        $categories=Category::all();
+        return view("admin.category.index",compact('categories'));
     }
 
     /**
@@ -55,7 +57,7 @@ class CategoryController extends Controller
         $category->meta_descrip=$req->input('meta_descrip');
         $category->meta_keywords=$req->input('meta_keywords');
         $category->save();
-        return redirect('/dashboard')->with('status','Insert to category successfully');
+        return redirect('create_category')->with('status','Insert to category successfully');
     }
 
     /**
@@ -77,7 +79,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category=Category::find($id);
+        return view('admin.category.edit',compact('category'));
     }
 
     /**
@@ -87,9 +90,32 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
-        //
+        $category=Category::find($id);
+        if($req->hasFile('photo')){
+            $path='asset/uploads/category/'.$category->image;
+            if(File::exists($path)){
+                File::delete($path);
+            }
+            $file=$req->file('photo');
+           $ext=$file->getClientOriginalExtension();
+           $filename=time().'.'. $ext;
+           $file->move('asset/uploads/category/', $filename);
+           $category->image=$filename;
+        }
+        $category->name=$req->input('name');
+        $category->slug=$req->input('slug');
+        $category->description=$req->input('description');
+        $category->status=$req->input('status')== TRUE ? '1':'';
+        $category->popular=$req->input('popular')== TRUE ? '1':'';
+        $category->meta_title=$req->input('meta_title');
+        $category->meta_descrip=$req->input('meta_descrip');
+        $category->meta_keywords=$req->input('meta_keywords');
+        $category->update();
+        return redirect('category')->with('status','Category updated successfully');
+        
+
     }
 
     /**
@@ -100,6 +126,14 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category=Category::find($id);
+        if($category->image){
+            $path='asset/uploads/category/'.$category->image;
+            if(File::exists($path)){
+                File::delete($path);
+            }
+        }
+        $category->delete();
+        return redirect('category')->with('status','Category deleted successfully');
     }
 }

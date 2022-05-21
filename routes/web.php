@@ -27,9 +27,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [FrontendController::class, 'index']);
+
     Route::get('category',[CategoryController::class,'index']);
     Route::get('create_category',[CategoryController::class,'create']);
     Route::post('store_category',[CategoryController::class,'store']);
+    Route::get('edit_category/{id}',[CategoryController::class,'edit']);
+    Route::put('update_category/{id}',[CategoryController::class,'update']);
+    Route::get('delete_category/{id}',[CategoryController::class,'destroy']);
 
 
     Route::get('import',[ImportController::class,'index']);
