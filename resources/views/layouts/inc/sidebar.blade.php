@@ -21,7 +21,7 @@
         <li class="nav-item">
           <a class="nav-link text-white {{ Request::is('category')? 'actived':'' }}  " href="{{ url('category') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
+              <i class="material-icons opacity-10">category</i>
             </div>
             <span class="nav-link-text ms-1">Category</span>
           </a>
@@ -29,25 +29,25 @@
         <li class="nav-item">
           <a class="nav-link text-white {{ Request::is('create_category')? 'actived':'' }}" href="{{ url('create_category') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
+              <i class="material-icons opacity-10">add</i>
             </div>
             <span class="nav-link-text ms-1">Add Category</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white {{ Request::is('import')? 'actived':'' }}" href="{{ url('import') }}">
+          <a class="nav-link text-white {{ Request::is('product')? 'actived':'' }}" href="{{ url('product') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">view_in_ar</i>
+              <i class="material-icons opacity-10">inventory_2</i>
             </div>
-            <span class="nav-link-text ms-1">Import Product</span>
+            <span class="nav-link-text ms-1">Product</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/rtl.html">
+          <a class="nav-link text-white {{ Request::is('create_product')? 'actived':'' }}" href="{{ url('create_product') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+              <i class="material-icons opacity-10">add_circle</i>
             </div>
-            <span class="nav-link-text ms-1">Product Order</span>
+            <span class="nav-link-text ms-1">Add Product</span>
           </a>
         </li>
         
