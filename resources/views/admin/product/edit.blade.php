@@ -4,15 +4,15 @@
         <h1>Edit/Update Product</h1>
     </div>
     <div class="card-body">
-        <form class="row g-3" method="POST" action="{{ url('update_product') }}" enctype="multipart/form-data">
+        <form class="row g-3" method="POST" action="{{ url('update_product/'.$product->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="col-md-4">
                 <label for="name" class="form-label">Category</label>
-                <select class="form-select" name="cate_id" aria-label="Default select example">
-                    <option value="{{ $product->cate_id }}"></option>
+                <select class="form-select" name="cate_id"  aria-label="Default select example">
+                    {{-- <option value="">{{ $product->category->name }}</option> --}}
                     @foreach ($categories as $item )
-                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    <option value="{{ $item->id }}" {{ $item->id==$product->cate_id? 'selected':'' }}>{{ $item->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -40,22 +40,24 @@
                 <label class="form-label" for="taxt"> Quantity</label>
                 <input type="number" class="form-control" id="qty" value="{{ $product->qty }}" name="qty" />
             </div>
-            <div class="col-md-2">
+            <div class="col-md-6">
                 <div class="form-check">
                     
                     <input class="form-check-input" type="checkbox" id="status" {{ $product->status=='1'? 'checked':'' }} name="status">
                     <label class="form-check-label" for="status">Status</label>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
+                <input class="form-check-input" type="checkbox" id="trending" {{ $product->trending=='1'? 'checked':'' }} name="trending">
+                <label class="form-label" for="trending">Trending</label>
+                
+            </div>
+            <div class="col-md-12">
                 <label class="form-label" for="status">Taxation</label>
                 <input type="text" class="form-control" value="{{ $product->tax }}" id="tax" name="tax" />
             </div>
 
-            <div class="col-md-6">
-                <label class="form-label" for="status">Trending</label>
-                <input type="text" class="form-control" id="trending" name="trending" />
-            </div>
+           
             <div class="col-12">
                 <label for="meta_title" class="form-label">Meta Title</label>
                 <textarea class="form-control" id="meta_title" name="meta_title"></textarea>
@@ -83,7 +85,7 @@
             </div>
             @endif
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </div>
         </form>
     </div>

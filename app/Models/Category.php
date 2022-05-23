@@ -21,4 +21,5 @@ class Category extends Model
         'meta_keywords',
         
     ];
+    
 }

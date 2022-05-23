@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
@@ -17,7 +19,8 @@ class ProductController extends Controller
     public function index()
     {
         $products=Product::all();
-        return view('admin.product.index',compact('products'));
+        $k=1;
+        return view('admin.product.index',compact('products','k'));
     }
 
     /**
@@ -40,7 +43,10 @@ class ProductController extends Controller
     public function store(Request $req)
     {
         $products=new Product();
-        
+        $existProduct = Product::where('name', '=', $req->input('name'))->first();
+        if($existProduct!=null){
+              return redirect()->back()->with('status','The product name exist already!');
+        }
         if($req->hasFile('photo')){
            $file=$req->file('photo');
            $ext=$file->getClientOriginalExtension();
@@ -49,23 +55,24 @@ class ProductController extends Controller
            $file->move('asset/uploads/product/', $filename);
            $products->image=$filename;
         }
-        $products->cate_id=$req->input('cate_id');
-        $products->name=$req->input('name');
-        $products->small_description=$req->input('small_description');
-        $products->description=$req->input('description');
-        $products->original_price=$req->input('original_price');
-        $products->selling_price=$req->input('selling_price');
-        $products->qty=$req->input('qty');
-        $products->tax=$req->input('tax');
-        $products->status=$req->input('status')== TRUE ? '1':'';
-        $products->trending=$req->input('trending');
-
-        $products->meta_title=$req->input('meta_title');
-        $products->meta_description=$req->input('meta_description');
-        $products->meta_keywords=$req->input('meta_keywords');
-        $products->save();
-        return redirect('create_product')->with('status','Insert to products successfully');
-    }
+      
+            $products->cate_id=$req->input('cate_id');
+            $products->name=$req->input('name');
+            $products->small_description=$req->input('small_description');
+            $products->description=$req->input('description');
+            $products->original_price=$req->input('original_price');
+            $products->selling_price=$req->input('selling_price');
+            $products->qty=$req->input('qty');
+            $products->tax=$req->input('tax');
+            $products->status=$req->input('status')== TRUE ? '1':'';
+            $products->trending=$req->input('trending')== TRUE ? '1':'';
+            $products->meta_title=$req->input('meta_title');
+            $products->meta_description=$req->input('meta_description');
+            $products->meta_keywords=$req->input('meta_keywords');
+            $products->save();
+            return redirect('create_product')->with('status','Insert to products successfully');
+        }
+    
 
     /**
      * Display the specified resource.
@@ -98,9 +105,36 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
-        //
+        $product=Product::find($id);
+        if($req->hasFile('photo')){
+            $path='asset/uploads/product/'.$product->image;
+            if(File::exists($path)){
+                File::delete($path);
+            }
+            $file=$req->file('photo');
+           $ext=$file->getClientOriginalExtension();
+           $filename=time().'.'. $ext;
+           $file->move('asset/uploads/product/', $filename);
+           $product->image=$filename;
+        }
+        $product->cate_id=$req->input('cate_id');
+        $product->name=$req->input('name');
+        $product->small_description=$req->input('small_description');
+        $product->description=$req->input('description');
+        $product->original_price=$req->input('original_price');
+        $product->selling_price=$req->input('selling_price');
+        $product->qty=$req->input('qty');
+        $product->tax=$req->input('tax');
+        $product->status=$req->input('status')== TRUE ? '1':'';
+        $product->trending=$req->input('trending')== TRUE ? '1':'';
+        $product->meta_title=$req->input('meta_title');
+        $product->meta_description=$req->input('meta_description');
+        $product->meta_keywords=$req->input('meta_keywords');
+        $product->update();
+        return redirect('product')->with('status','Product updated successfully');
+        
     }
 
     /**
@@ -111,6 +145,15 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product=Product::find($id);
+        if($product->image){
+            $path='asset/uploads/product/'.$product->image;
+            if(File::exists($path)){
+                File::delete($path);
+            }
+        }
+        $product->delete();
+        // return redirect('product')->with('status','Product deleted successfully');
+         return redirect()->back();
     }
 }

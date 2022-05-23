@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+use Symfony\Component\Console\Input\Input;
 
 class CategoryController extends Controller
 {
@@ -17,7 +18,8 @@ class CategoryController extends Controller
     public function index()
     {
         $categories=Category::all();
-        return view("admin.category.index",compact('categories'));
+        $k=1;
+        return view("admin.category.index",compact('categories','k'));
     }
 
     /**
@@ -39,26 +41,30 @@ class CategoryController extends Controller
     public function store(Request $req)
     {
         $category=new Category();
-        
-        if($req->hasFile('photo')){
-           $file=$req->file('photo');
-           $ext=$file->getClientOriginalExtension();
-           $filename=time().'.'. $ext;
-          
-           $file->move('asset/uploads/category/', $filename);
-           $category->image=$filename;
+        $existCategory=Category::where('name','=',$req->input('name'))->first();
+        if($existCategory!=null){
+            return redirect()->back()->with('status','The categroy already exist!');
         }
-        $category->name=$req->input('name');
-        $category->slug=$req->input('slug');
-        $category->description=$req->input('description');
-        $category->status=$req->input('status')== TRUE ? '1':'';
-        $category->popular=$req->input('popular')== TRUE ? '1':'';
-        $category->meta_title=$req->input('meta_title');
-        $category->meta_descrip=$req->input('meta_descrip');
-        $category->meta_keywords=$req->input('meta_keywords');
-        $category->save();
-        return redirect('create_category')->with('status','Insert to category successfully');
-    }
+        if($req->hasFile('photo')){
+            $file=$req->file('photo');
+            $ext=$file->getClientOriginalExtension();
+            $filename=time().'.'. $ext;
+            
+            $file->move('asset/uploads/category/', $filename);
+            $category->image=$filename;
+            }
+            $category->name=$req->input('name');
+            $category->slug=$req->input('slug');
+            $category->description=$req->input('description');
+            $category->status=$req->input('status')== TRUE ? '1':'';
+            $category->popular=$req->input('popular')== TRUE ? '1':'';
+            $category->meta_title=$req->input('meta_title');
+            $category->meta_descrip=$req->input('meta_descrip');
+            $category->meta_keywords=$req->input('meta_keywords');
+            $category->save();
+            return redirect()->back()->with('status','Insert to category successfully');
+        }
+    
 
     /**
      * Display the specified resource.
@@ -134,6 +140,6 @@ class CategoryController extends Controller
             }
         }
         $category->delete();
-        return redirect('category')->with('status','Category deleted successfully');
+        return redirect('category');
     }
 }

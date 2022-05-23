@@ -40,6 +40,9 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('create_product',[ProductController::class,'create']);
     Route::post('store_product',[ProductController::class,'store']);
     Route::get('edit_product/{id}',[ProductController::class,'edit']);
+    Route::put('update_product/{id}',[ProductController::class,'update']);
+    Route::get('delete_product/{id}',[ProductController::class,'destroy']);
+
 
     Route::get('import',[ImportController::class,'index']);
     

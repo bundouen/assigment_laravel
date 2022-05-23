@@ -39,22 +39,24 @@
                 <label class="form-label" for="taxt"> Quantity</label>
                 <input type="number" class="form-control" id="qty" name="qty" />
             </div>
-            <div class="col-md-2">
+            <div class="col-md-6">
                 <div class="form-check">
                     
                     <input class="form-check-input" type="checkbox" id="status" name="status">
                     <label class="form-check-label" for="status">Status</label>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
+                <input class="form-check-input" type="checkbox" id="trending" name="trending">
+                <label class="form-label" for="trending">Trending</label>
+                
+            </div>
+            <div class="col-md-12">
                 <label class="form-label" for="status">Taxation</label>
                 <input type="text" class="form-control" id="tax" name="tax" />
             </div>
 
-            <div class="col-md-6">
-                <label class="form-label" for="status">Trending</label>
-                <input type="text" class="form-control" id="trending" name="trending" />
-            </div>
+           
             <div class="col-12">
                 <label for="meta_title" class="form-label">Meta Title</label>
                 <textarea class="form-control" id="meta_title" name="meta_title"></textarea>

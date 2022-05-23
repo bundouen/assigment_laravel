@@ -22,10 +22,15 @@
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   
+  
+  
   <!-- CSS Files -->
     <link href="{{ asset('admin/css/material-dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet">
+    
+   <!-- jquery -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     
 </head>
 <body class="g-sidenav-show  bg-gray-200 ">
@@ -53,7 +58,26 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="admin/js/material-dashboard.min.js"></script>
+
+  
     
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    
+
+    @if (session('status'))
+
+    <script>
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title:"{{ session('status') }}" ,
+        showConfirmButton: false,
+        timer: 1500
+      })
+    </script>
+      
+    @endif
     
     @yield('script')
 </body>

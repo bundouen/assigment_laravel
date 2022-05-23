@@ -18,21 +18,21 @@
            
             <tbody>
                 @foreach ($categories as $cat )
-              <tr>
-                <th scope="row">{{ $cat->id }}</th>
-                <td>{{ $cat->name }}</td>
-                <td>{{ $cat->description }}</td>
-                <td><img src="{{'asset/uploads/category/'.$cat->image  }}" class="cl_image" alt=""></td>
-                <td>
-                    <a href="{{ url('edit_category/'. $cat->id) }}" class="btn btn-primary"> <i class="fa fa-pen"></i></a>
-                    <a href="{{ url('delete_category/'.$cat->id) }}" class="btn btn-danger"> <i class="fa fa-trash"></i></a>
-                </td>
-              </tr>
+                    <tr>
+                      <th scope="row">{{$k++ }}</th>
+                      <td>{{ $cat->name }}</td>
+                      <td>{{ $cat->description }}</td>
+                      <td><img src="{{'asset/uploads/category/'.$cat->image  }}" class="cl_image" alt=""></td>
+                      <td>
+                          <a href="{{ url('edit_category/'. $cat->id) }}" class="btn btn-primary"> <i class="fa fa-pen"></i></a>
+                          <a href="{{ url('delete_category/'.$cat->id) }}" class="btn btn-danger delete-confirm"> <i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
               @endforeach
             </tbody>
           </table>
     </div>
 
 </div>
-    
+<script src="admin/js/delete-confirm.js"></script>
 @endsection

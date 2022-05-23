@@ -8,7 +8,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">PID</th>
+                    <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Original Price</th>
                     <th scope="col">Selling Price</th>
@@ -21,7 +21,7 @@
             <tbody>
                 @foreach ($products as $prod )
                 <tr>
-                    <th scope="row">{{ $prod->id }}</th>
+                    <th scope="row">{{ $k++ }}</th>
                     <td>{{ $prod->name }}</td>
                     <td>{{ $prod->original_price }}</td>
                     <td>{{ $prod->selling_price }}</td>
@@ -30,7 +30,7 @@
                     <td>
                         <a href="{{ url('edit_product/'. $prod->id) }}" class="btn btn-primary"> <i
                                 class="fa fa-pen"></i></a>
-                        <a href="{{ url('delete_product/'.$prod->id) }}" class="btn btn-danger"> <i
+                        <a href="{{ url('delete_product/'.$prod->id) }}" class="btn btn-danger delete-confirm"> <i
                                 class="fa fa-trash"></i></a>
                     </td>
                 </tr>
@@ -40,5 +40,6 @@
     </div>
 
 </div>
+<script src="admin/js/delete-confirm.js"></script>
 
 @endsection
