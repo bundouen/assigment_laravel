@@ -10,12 +10,12 @@
                 @foreach ($feature_product as $item )
                 <div class="item">
                     <div class="card">
-                        <div class="image_product">
-                            <img src="{{ asset('asset/uploads/product/'.$item->image) }}" alt="product image" />
-                        </div>
+                        
+                            <img src="{{ asset('asset/uploads/product/'.$item->image) }}" class="card-img-top"
+                                alt="product image" />
                         
                         <div class="card-body">
-                            <h2>{{ $item->name }}</h2>
+                            <h5>{{ $item->name }}</h5>
                             <div class="d-flex justify-content-between">
                                 <span>$ {{ $item->selling_price }}</span>
                                 <span>$ <s>{{ $item->original_price }}</s></span>
@@ -40,7 +40,7 @@
     dots:true,
     responsive:{
         0:{
-            items:1
+            items:2
         },
         600:{
             items:3

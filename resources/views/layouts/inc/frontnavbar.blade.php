@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-0">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-1 bg-body rounded">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">E-Shop</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
