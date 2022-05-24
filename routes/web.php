@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
+
 use App\Http\Controllers\Frontend\ImportController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Admin\Product\ProductController;
@@ -17,9 +19,10 @@ use App\Http\Controllers\Admin\Category\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/',[FrontendController::class,'index']);
 
 Auth::routes();
 
@@ -27,7 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/dashboard', [FrontendController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 //category
     Route::get('category',[CategoryController::class,'index']);
     Route::get('create_category',[CategoryController::class,'create']);

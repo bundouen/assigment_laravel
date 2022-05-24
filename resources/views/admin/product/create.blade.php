@@ -29,11 +29,11 @@
             </div>
             <div class="col-md-4">
                 <label for="original_price">Original Price</label>
-                <input type="text" class="form-control" id="original_price" name="original_price" />
+                <input type="number" class="form-control" id="original_price" name="original_price" />
             </div>
             <div class="col-md-4">
                 <label class="form-label" for="qty">Selling Price</label>
-                <input type="text" class="form-control" id="selling_price" name="selling_price" />
+                <input type="number" class="form-control" id="selling_price" name="selling_price" />
             </div>
             <div class="col-md-4">
                 <label class="form-label" for="taxt"> Quantity</label>
@@ -53,7 +53,7 @@
             </div>
             <div class="col-md-12">
                 <label class="form-label" for="status">Taxation</label>
-                <input type="text" class="form-control" id="tax" name="tax" />
+                <input type="number" class="form-control" id="tax" name="tax" />
             </div>
 
            

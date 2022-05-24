@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Product;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class FrontendController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        $feature_product=Product::where('trending','1')->take(15)->get();
-        return view('frontend.index',compact('feature_product'));
+        return view('admin.index');
     }
 
     /**
