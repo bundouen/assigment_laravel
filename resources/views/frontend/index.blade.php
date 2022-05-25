@@ -9,13 +9,14 @@
             <div class="owl-carousel feature-carousel owl-theme">
                 @foreach ($feature_product as $item )
                 <div class="item">
-                    <div class="card">
-                        
-                            <img src="{{ asset('asset/uploads/product/'.$item->image) }}" class="card-img-top"
+                    <div class="card card-inverse card-info">
+                        <img src="{{ asset('asset/uploads/product/'.$item->image) }}" class="card-img-top"
                                 alt="product image" />
-                        
                         <div class="card-body">
-                            <h5>{{ $item->name }}</h5>
+                            <div class="bg-light text-wrap title">
+                                {{ $item->name }}
+                              </div>
+                            {{-- <h5>{{ $item->name }}</h5> --}}
                             <div class="d-flex justify-content-between">
                                 <span>$ {{ $item->selling_price }}</span>
                                 <span>$ <s>{{ $item->original_price }}</s></span>
