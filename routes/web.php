@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\ImportController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Admin\Product\ProductController;
@@ -23,10 +24,15 @@ use App\Http\Controllers\Admin\Category\CategoryController;
 //     return view('welcome');
 // });
 Route::get('/',[FrontendController::class,'index']);
+Route::get('feature_category',[FrontendController::class,'category']);
+Route::get('view_category/{id}',[FrontendController::class,'viewcategory']);
+Route::get('view_category/{cate_id}/{pid}',[FrontendController::class,'viewproduct']);
+
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {

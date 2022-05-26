@@ -64,8 +64,8 @@ class ProductController extends Controller
             $products->selling_price=$req->input('selling_price');
             $products->qty=$req->input('qty');
             $products->tax=$req->input('tax');
-            $products->status=$req->input('status')== TRUE ? '1':'';
-            $products->trending=$req->input('trending')== TRUE ? '1':'';
+            $products->status=$req->input('status')== TRUE ? '1':'0';
+            $products->trending=$req->input('trending')== TRUE ? '1':'0';
             $products->meta_title=$req->input('meta_title');
             $products->meta_description=$req->input('meta_description');
             $products->meta_keywords=$req->input('meta_keywords');
@@ -127,8 +127,8 @@ class ProductController extends Controller
         $product->selling_price=$req->input('selling_price');
         $product->qty=$req->input('qty');
         $product->tax=$req->input('tax');
-        $product->status=$req->input('status')== TRUE ? '1':'';
-        $product->trending=$req->input('trending')== TRUE ? '1':'';
+        $product->status=$req->input('status')== TRUE ? '1':'0';
+        $product->trending=$req->input('trending')== TRUE ? '1':'0';
         $product->meta_title=$req->input('meta_title');
         $product->meta_description=$req->input('meta_description');
         $product->meta_keywords=$req->input('meta_keywords');

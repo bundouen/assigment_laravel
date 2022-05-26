@@ -56,8 +56,8 @@ class CategoryController extends Controller
             $category->name=$req->input('name');
             $category->slug=$req->input('slug');
             $category->description=$req->input('description');
-            $category->status=$req->input('status')== TRUE ? '1':'';
-            $category->popular=$req->input('popular')== TRUE ? '1':'';
+            $category->status=$req->input('status')== TRUE ? '1':'0';
+            $category->popular=$req->input('popular')== TRUE ? '1':'0';
             $category->meta_title=$req->input('meta_title');
             $category->meta_descrip=$req->input('meta_descrip');
             $category->meta_keywords=$req->input('meta_keywords');
@@ -113,8 +113,8 @@ class CategoryController extends Controller
         $category->name=$req->input('name');
         $category->slug=$req->input('slug');
         $category->description=$req->input('description');
-        $category->status=$req->input('status')== TRUE ? '1':'';
-        $category->popular=$req->input('popular')== TRUE ? '1':'';
+        $category->status=$req->input('status')== TRUE ? '1':'0';
+        $category->popular=$req->input('popular')== TRUE ? '1':'0';
         $category->meta_title=$req->input('meta_title');
         $category->meta_descrip=$req->input('meta_descrip');
         $category->meta_keywords=$req->input('meta_keywords');
