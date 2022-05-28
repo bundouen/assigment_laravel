@@ -47,9 +47,9 @@ Welcome to E-Shop
                                 <div class="bg-light text-wrap title">
                                     {{ $cate->name }}
                                 </div>
-                                <p>
+                                {{-- <p>
                                     {{ $cate->description }}
-                                </p>
+                                </p> --}}
                             </div>
                         </div>
                     </a>

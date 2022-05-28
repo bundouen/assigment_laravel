@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\ImportController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -33,7 +34,12 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::post('addtocart',[CartController::class,'store']);
+Route::post('delete_cart_item',[CartController::class,'destroy']);
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('cart',[CartController::class,'index']);
+});
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);

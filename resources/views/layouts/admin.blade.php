@@ -33,8 +33,7 @@
 
   <!-- jquery -->
   {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> --}}
-  <script src="frontend/js/query-3.6.0.min.js"></script>
-
+  <script src="{{ asset('frontend/js/query-3.6.0.min.js') }}"></script>  
 </head>
 
 <body class="g-sidenav-show  bg-gray-200 ">
@@ -54,16 +53,17 @@
 
     <!--   Core JS Files   -->
     
+    
 
-    <script src="admin/js/popper.min.js"></script>
-    <script src="admin/js/bootstrap.min.js"></script>
-    <script src="admin/js/perfect-scrollbar.min.js"></script>
-    <script src="admin/js/smooth-scrollbar.min.js"></script>
+    <script src="{{ asset('admin/js/popper.min.js') }}"></script>
+    <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin/js/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{asset ('admin/js/smooth-scrollbar.min.js') }}"></script>
 
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="admin/js/material-dashboard.min.js"></script>
+    <script src="{{asset ('admin/js/material-dashboard.min.js') }}"></script>
 
 
 

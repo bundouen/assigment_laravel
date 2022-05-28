@@ -9,7 +9,7 @@
 </div>
 
 <div class="contaner">
-    <div class="card shadow rounded">
+    <div class="card shadow rounded product_data">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4 border-right">
@@ -39,21 +39,22 @@
                         <div class="col-md-2">
                             <label for="Quantity">Quantity</label>
                             <div class="input-group text-center mb-3">
+                                <input type="hidden" value="{{ $productdetail->id }}" class="prod_id">
                                 <button class="input-group-text decrement-btn">-</button>
-                                <input type="text" name="quantity" value="1" class="form-control txtqty">
+                                <input type="text" name="quantity" value="1" class="form-control prod_qty">
                                 <button class="input-group-text increment-btn">+</button>
                             </div>
                         </div>
                         <div class="col-md-10">
                             <br/>
                             <button class="btn btn-success me-3 float-start">Add to Wishlist <i class="fa fa-heart"></i></button>
-                            <button class="btn btn-success me-3 float-start">Add to Cart <i class="fa fa-shopping-cart"></i> </button>
+                            <button class="btn btn-success me-3 float-start btnAddToCart">Add to Cart <i class="fa fa-shopping-cart"></i> </button>
                         </div>
                     </div>
                 </div>
                 <hr>
                 <div class="col-md-12">
-                    <h2>Description</h1>
+                    <h3>Description</h3>
                     {!! $productdetail->description !!}
                 </div>
             </div>
@@ -63,27 +64,59 @@
 </div>
 
 @endsection
-@section('scripts')
+{{-- @section('scripts')
 <script>
     $(document).ready(function () {
+
+        $('.btnAddToCart').click(function (e) { 
+            e.preventDefault();
+            var prodId=$(this).closest('.product_data').find('.prod_id').val();
+            var prodqty=$(this).closest('.product_data').find('.prod_qty').val();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                method: "POST",
+                url: "/addtocart",
+                data:{
+                    'prod_id':prodId,
+                    'prod_qty':prodqty,
+                },
+                
+                success: function (response) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title:response.status ,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
+                
+            });
+            
+        });
+
         $('.increment-btn').click(function (e) { 
             e.preventDefault();
-            var inc_val=$('.txtqty').val();
+            var inc_val=$('.prod_qty').val();
             var value=parseInt(inc_val,10);
             value=isNaN(value)? 0:value;
             if(value<10){
                 value++;
-                $('.txtqty').val(value);
+                $('.prod_qty').val(value);
             }
         });
         $('.decrement-btn').click(function (e) { 
             e.preventDefault();
-            var dec_val=$('.txtqty').val();
+            var dec_val=$('.prod_qty').val();
             var value=parseInt(dec_val,10);
             value=isNaN(value)? 0:value;
             if(value>1){
                 value--;
-                $('.txtqty').val(value);
+                $('.prod_qty').val(value);
             }
         });
         
@@ -91,4 +124,4 @@
     });
 </script>
     
-@endsection
+@endsection --}}

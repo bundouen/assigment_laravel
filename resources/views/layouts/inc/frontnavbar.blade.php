@@ -11,7 +11,7 @@
                     <a class="nav-link" href="{{ 'feature_category' }}">Category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="{{ 'cart' }}">Cart</a>
                 </li>
               
                 @if (Route::has('login'))

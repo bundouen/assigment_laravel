@@ -36,8 +36,8 @@
 
 
   <!-- jquery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>  --}}
+  <script src="{{ asset('frontend/js/query-3.6.0.min.js') }}"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200 ">
@@ -52,14 +52,13 @@
   <!--   Core JS Files   -->
 
 
-  <script src="frontend/js/query-3.6.0.min.js"></script>
+  <script src="{{ asset('frontend/js/query-3.6.0.min.js') }}"></script>
 
-  <script src="frontend/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
 
-
-  <script src="frontend/js/owl.carousel.min.js"></script>
-
+  <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="{{ asset('frontend/js/custom.js') }}"></script>
 
   @if (session('status'))
 
