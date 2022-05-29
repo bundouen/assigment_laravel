@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\ImportController;
+use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Category\CategoryController;
@@ -36,9 +37,13 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::post('addtocart',[CartController::class,'store']);
 Route::post('delete_cart_item',[CartController::class,'destroy']);
+Route::post('update_qty',[CartController::class,'updateqty']);
+
 
 Route::middleware(['auth'])->group(function () {
     Route::get('cart',[CartController::class,'index']);
+    Route::get('checkout',[CheckoutController::class,'index']);
+    
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {

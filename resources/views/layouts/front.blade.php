@@ -57,7 +57,12 @@
   <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
 
   <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
+
+  
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{{-- <script src="{{ asset('frontend/js/sweetalert.min.js') }}"></script> --}}
+
   <script src="{{ asset('frontend/js/custom.js') }}"></script>
 
   @if (session('status'))

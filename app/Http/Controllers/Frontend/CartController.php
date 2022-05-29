@@ -42,23 +42,27 @@ class CartController extends Controller
         $prod_id=$request->input('prod_id');
         $prod_qty=$request->input('prod_qty');
         if(Auth::check()){
-            
             $prod_check=Product::where('id',$prod_id)->first();
             if($prod_check){
-                if (Cart::where('prod_id',$prod_id)->where('user_id',Auth::id())->exists()) {
-                    return response()->json(['status' => $prod_check->name." Already Added to cart"]);
-                } else {
-                    $cartItem=new Cart();
-                    $cartItem->user_id=Auth::id();
-                    $cartItem->prod_id=$prod_id;
-                    $cartItem->prod_qty=$prod_qty;
-                    $cartItem->save();
-                    return response()->json(['status' => $prod_check->name." Added to cart"]);
+                if($prod_qty<=$prod_check->qty){
+                    if (Cart::where('prod_id',$prod_id)->where('user_id',Auth::id())->exists()) {
+                        return response()->json(['status' => "Exist"]);
+                    } else {
+                        $cartItem=new Cart();
+                        $cartItem->user_id=Auth::id();
+                        $cartItem->prod_id=$prod_id;
+                        $cartItem->prod_qty=$prod_qty;
+                        $cartItem->save();
+                        return response()->json(['status' => $prod_check->name." Added to cart"]);
+                    }
+                }else{
+                    return response()->json(['status' => "Out".'-'.$prod_check->qty]);
+                    
                 }
             }
 
         }else{
-             return response()->json(['status' => "Login to continue"]);
+             return response()->json(['status' => "Login"]);
         }
     }
 
@@ -91,9 +95,27 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateqty(Request $request)
     {
-        //
+        if(Auth::check()){
+            $prod_id=$request->input('prod_id');
+            $newqty=$request->input('prod_qty');
+            if(Cart::where('prod_id',$prod_id)->where('user_id',Auth::id())->exists()){
+                $product=Product::where('id',$prod_id)->first();
+                if($newqty<=$product->qty){
+                    $cartItem=Cart::where('prod_id',$prod_id)->where('user_id',Auth::id())->first();
+                    $cartItem->prod_qty=$newqty;
+                    $cartItem->update();
+                    return response()->json(['status' => "0"]);
+                }else{
+                    return response()->json(['status' => "1"]);
+                }
+                
+            }
+
+        }else{
+            return response()->json(['status' => "2"]);
+        }
     }
 
     /**

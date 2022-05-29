@@ -19,26 +19,26 @@
             @endphp
             @foreach ($cartItem as $item )
             <div class="row product_data">
-                <div class="col-md-2">
+                <div class="col-md-2 my-auto">
                     <img src="{{ asset('asset/uploads/product/'.$item->products->image) }}" class="w-50" alt="">
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 my-auto">
                     <h6>{{ $item->products->name }}</h6>
                    
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 my-auto">
                     <h6>$ {{ $item->products->selling_price }}</h6>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 my-auto">
                     <input type="hidden" class="prod_id" value="{{ $item->prod_id }}">
                     <label for="Quantity">Quantity</label>
                     <div class="input-group text-center mb-3" style="width: 130px;">
-                        <button class="input-group-text decrement-btn">-</button>
+                        <button class="input-group-text change_qty decrement-btn">-</button>
                         <input type="text" name="quantity" value="{{ $item->prod_qty }}" class="form-control prod_qty">
-                        <button class="input-group-text increment-btn">+</button>
+                        <button class="input-group-text change_qty increment-btn">+</button>
                     </div>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-1 my-auto">
                     <button class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i></button>
                 </div>
 
@@ -51,7 +51,7 @@
         </div>
         <div class="card-footer">
             <h3>Total Price=$ {{ $total }}
-                <button class="btn btn-primary btn-checkout float-end" style="font-size: 22px">Check Out</button>
+                <button class="btn btn-primary btn-checkout float-end" style="font-size: 70%">Checkout <i class='fas fa-cart-arrow-down' style='font-size:22px;'></i></button>
             </h3>
         </div>
     </div>
