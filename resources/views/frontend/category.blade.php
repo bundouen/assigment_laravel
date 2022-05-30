@@ -15,16 +15,16 @@
                     
                     <div class="col-md-3 my-3">
                         <a href="{{ url('view_category/'.$item->id) }}">
-                            <div class="card card-inverse card-info">
+                            <div class="card">
                                 <img src="{{ asset('asset/uploads/category/'.$item->image) }}" class="card-img-top"
                                     alt="product image" />
                                 <div class="card-body">
                                     <div class="bg-light text-wrap title">
                                         {{ $item->name }}
                                     </div>
-                                    <p>
+                                    {{-- <p>
                                         {{ $item->description }}
-                                    </p>
+                                    </p> --}}
                                 </div>
                             </div>
                         </a>

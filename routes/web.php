@@ -43,6 +43,7 @@ Route::post('update_qty',[CartController::class,'updateqty']);
 Route::middleware(['auth'])->group(function () {
     Route::get('cart',[CartController::class,'index']);
     Route::get('checkout',[CheckoutController::class,'index']);
+    Route::post('place_order',[CheckoutController::class,'store']);
     
 });
 

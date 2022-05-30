@@ -15,7 +15,7 @@
             
                 @foreach ($productbyid as $item )
                 <div class="col-md-3 my-3">
-                    <div class="card card-inverse card-info">
+                    <div class="card">
                         <a href="{{ url('view_category/'.$category->id.'/'.$item->id) }}">
                             <img src="{{ asset('asset/uploads/product/'.$item->image) }}" class="card-img-top"
                                 alt="product image" />

@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use App\Models\Cart;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -35,6 +37,11 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+        });
+        view()->composer('*', function ($view) {
+            $cart=Cart::where('user_id',Auth::id())->get();
+            $countcart=count($cart);
+            $view->with('countcart', $countcart);
         });
     }
 

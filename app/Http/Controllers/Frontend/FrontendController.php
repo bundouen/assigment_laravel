@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
@@ -17,7 +19,8 @@ class FrontendController extends Controller
     public function index()
     {
         $feature_product=Product::where('trending','1')->take(15)->get();
-        $trending_category=Category::where('popular','1')->take(15)->get();
+        $trending_category=Category::where('popular','1')->take(15)->get(); 
+        
         return view('frontend.index',compact('feature_product','trending_category'));
     }
     public function category()

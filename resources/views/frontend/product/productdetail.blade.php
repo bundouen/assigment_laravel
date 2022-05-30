@@ -19,9 +19,9 @@
                     <h2 class="mb-0">
                         {{ $productdetail->name }}
                         @if ($productdetail->trending==='1')
-                            <label  style="font-size: 16px;" class="float-end badge bg-danger trending_tag">Trending</label>
+                        <label style="font-size: 16px;" class="float-end badge bg-danger trending_tag">Trending</label>
                         @endif
-                        
+
                     </h2>
                     <hr>
                     <label class="me-3">Orginal Price : <s>${{ $productdetail->original_price }}</s></label>
@@ -31,9 +31,9 @@
                     </p>
                     <hr>
                     @if ($productdetail->qty>0)
-                        <label style="font-size: 16px;" class="badge bg-success">In stock</label>
+                    <label style="font-size: 16px;" class="badge bg-success">In stock</label>
                     @else
-                        <label style="font-size: 16px;" class="badge bg-success">Out of stock</label>
+                    <label style="font-size: 16px;" class="badge bg-danger">Out of stock</label>
                     @endif
                     <div class="row mt-2">
                         <div class="col-md-2">
@@ -46,9 +46,15 @@
                             </div>
                         </div>
                         <div class="col-md-10">
-                            <br/>
-                            <button class="btn btn-success me-3 float-start">Add to Wishlist <i class="fa fa-heart"></i></button>
-                            <button class="btn btn-success me-3 float-start btnAddToCart">Add to Cart <i class="fa fa-shopping-cart"></i> </button>
+                            <br />
+                            @if ($productdetail->qty>0)
+                            <button class="btn btn-success me-3 float-start btnAddToCart">Add to Cart <i
+                                    class="fa fa-shopping-cart"></i> </button>
+
+                            @endif
+                            <button class="btn btn-success me-3 float-start">Add to Wishlist <i
+                                    class="fa fa-heart"></i></button>
+
                         </div>
                     </div>
                 </div>
@@ -59,7 +65,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 
@@ -123,5 +129,5 @@
         
     });
 </script>
-    
+
 @endsection --}}

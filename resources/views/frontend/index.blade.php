@@ -12,7 +12,7 @@ Welcome to E-Shop
             <div class="owl-carousel feature-carousel owl-theme my-3">
                 @foreach ($feature_product as $item )
                 <div class="item">
-                    <div class="card card-inverse card-info">
+                    <div class="card ">
                         <a href="{{ url('view_category/'.$item->category->id.'/'.$item->id) }}">
                             <img src="{{ asset('asset/uploads/product/'.$item->image) }}" class="card-img-top"
                                 alt="product image" />
@@ -40,7 +40,7 @@ Welcome to E-Shop
                 @foreach ($trending_category as $cate )
                 <div class="item">
                     <a href="{{ url('view_category/'.$cate->id) }}">
-                        <div class="card card-inverse card-info">
+                        <div class="card ">
                             <img src="{{ asset('asset/uploads/category/'.$cate->image) }}" class="card-img-top"
                                 alt="product image" />
                             <div class="card-body">

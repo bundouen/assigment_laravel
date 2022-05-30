@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminMiddleware
 {
+
+    protected $countcart;
+
+
     /**
      * Handle an incoming request.
      *
@@ -19,6 +23,7 @@ class AdminMiddleware
     {
         if(Auth::check())
         {
+           
             if(Auth::user()->role_as == '1')
             {
                 return $next($request);
