@@ -42,9 +42,11 @@
   </head>
 
 <body class="g-sidenav-show  bg-gray-200 ">
-  @include('layouts.inc.frontnavbar')
+  
   <main class="main-content d-flex flex-column min-vh-100 border-radius-lg ">
+    @include('layouts.inc.frontnavbar')
     <div class="container-fluid py-3">
+      
       @yield('content')
     </div>
 

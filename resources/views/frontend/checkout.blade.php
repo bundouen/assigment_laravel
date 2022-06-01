@@ -38,13 +38,16 @@ Checkout
                                 <input type="text" class="form-control" placeholder="Address 2" name="address2"
                                     value="{{ isset($reciever)?$reciever->address2:'' }}" />
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-12 mb-3">
                                 <input type="text" class="form-control" placeholder="City" name="city"
-                                    value="{{ isset($reciever)?$reciever->address2:'' }}" />
+                                    value="{{ isset($reciever)?$reciever->city:'' }}" />
                             </div>
+                            @php
+                                $date = strtotime( date("Y-m-d H:i:s"))
+                            @endphp
                             <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" placeholder="Tracking" name="tracking"
-                                    value="{{isset($reciever)? $reciever->tracking:'' }}" />
+                                <input type="hidden" class="form-control" placeholder="Tracking" name="tracking"
+                                    value="{{ $date }}" />
                             </div>
 
                         </div>

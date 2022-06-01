@@ -50,6 +50,7 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
+        $date=strtotime("2022/06/01"); ;
         $order=new Order;
         $order->user_id=Auth::user()->id;  //Auth::id()
         $order->fname=$request->input('fname');
@@ -70,6 +71,9 @@ class CheckoutController extends Controller
                 'qty'=>$item->prod_qty,
                 'price'=>$item->products->selling_price,
             ]);
+            $product=Product::where('id',$item->prod_id)->first();
+            $product->qty= $product->qty - $item->prod_qty;
+            $product->update();
         }
         $cart_items=Cart::where('user_id',Auth::id())->get();
         Cart::destroy($cart_items);
