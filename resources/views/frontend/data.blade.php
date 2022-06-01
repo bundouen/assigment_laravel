@@ -2,12 +2,11 @@
 <div class="row">
     @foreach ($products as $item )
     <div class="col-md-3 mb-3">
-
         <div class="card card-product mt-3 product_data">
             <a href="{{ url('view_category/'.$item->category->id.'/'.$item->id)}}">
                 <div class="product align-items-center p-2 text-center">
                     <img src="{{ asset('asset/uploads/product/'.$item->image) }}" class="rounded mb-2" height="200" />
-                    <h5> {{ $item->name }}</h5>
+                    <h4> {{ $item->name }}</h4>
 
                     {{-- card-info --}}
                     <div class="mt-3 info">
