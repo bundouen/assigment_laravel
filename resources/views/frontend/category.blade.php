@@ -14,20 +14,17 @@
                     @foreach ($feature_category as $item )
                     
                     <div class="col-md-3 my-3">
-                        <a href="{{ url('view_category/'.$item->id) }}">
-                            <div class="card">
-                                <img src="{{ asset('asset/uploads/category/'.$item->image) }}" class="card-img-top"
-                                    alt="product image" />
-                                <div class="card-body">
-                                    <div class="bg-light text-wrap title">
-                                        {{ $item->name }}
+                        <div class="item">
+                            <a href="{{ url('view_category/'.$item->id) }}">
+                                <div class="card card-product">
+                                    <div class="product align-items-center p-2 text-center">
+                                        <img src="{{ asset('asset/uploads/category/'.$item->image) }}" class="rounded mb-2"
+                                            height="200" />
+                                        <h3>{{ $item->name }}</h3>
                                     </div>
-                                    {{-- <p>
-                                        {{ $item->description }}
-                                    </p> --}}
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                     @endforeach
                 </div>

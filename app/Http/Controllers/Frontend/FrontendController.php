@@ -20,13 +20,14 @@ class FrontendController extends Controller
     public function index(Request $request)
     {
         $products=Product::paginate(4);
-        $categorys=Category::where('status','0')->get(); 
+        $feature_category=Category::where('popular','1')->get(); 
+        $feature_product=Product::where('trending','1')->get();
         if($request->ajax()){
             $view=view('frontend.data',compact('products'))->render();
             return response()->json(['html'=>$view]);
         }
         
-        return view('frontend.index',compact('products','categorys'));
+        return view('frontend.index',compact('products','feature_category','feature_product'));
     }
 
 

@@ -1,7 +1,5 @@
 @extends('layouts.front')
 @section('title','Cart')
-
-
 @section('content')
 <div class="container my-2">
     <div class="card shadow rounded product_data">
