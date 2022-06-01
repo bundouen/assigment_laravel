@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-2 bg-body rounded">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-0 bg-body rounded">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">E-Shop</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -7,11 +7,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ 'feature_category' }}">Category</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
-                    {{-- <i class="fa" style="font-size:16px">&#xf07a;</i> --}}
                     <a class="nav-link" href="{{ 'cart' }}"><i class="fa fa-shopping-cart" style="font-size: 16px;"></i></a>
                     <span class='badge badge-warning' id='lblCartCount'>{{ isset($countcart)? $countcart:0 }}</span>
                 </li>

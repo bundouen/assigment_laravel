@@ -16,13 +16,20 @@ class FrontendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    // protected $perpage=3;
+    public function index(Request $request)
     {
-        $feature_product=Product::where('trending','1')->take(15)->get();
-        $trending_category=Category::where('popular','1')->take(15)->get(); 
+        $products=Product::paginate(4);
+        $categorys=Category::where('status','0')->get(); 
+        if($request->ajax()){
+            $view=view('frontend.data',compact('products'))->render();
+            return response()->json(['html'=>$view]);
+        }
         
-        return view('frontend.index',compact('feature_product','trending_category'));
+        return view('frontend.index',compact('products','categorys'));
     }
+
+
     public function category()
     {
         $feature_category=Category::where('status','0')->get();

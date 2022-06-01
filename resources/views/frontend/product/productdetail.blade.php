@@ -4,7 +4,7 @@
 @section('content')
 <div class="py-3 mb-2 shadow-sm bg-warning border-top rounded">
     <div class="container">
-        <div class="mb--0">Collections / {{ $productdetail->category->name }} / {{ $productdetail->name }}</div>
+        <div class="mb-0">Collections / {{ $productdetail->category->name }} / {{ $productdetail->name }}</div>
     </div>
 </div>
 

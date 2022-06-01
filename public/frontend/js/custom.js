@@ -17,6 +17,7 @@ $(document).ready(function () {
             },
 
             success: function (response) {
+                // alert(response.status)
                 var arr= response.status.split('-');
                 var out_stock=(arr[0]+'-'+arr[1]);
                 if(response.status=='Exist'){
@@ -47,9 +48,11 @@ $(document).ready(function () {
                     Swal.fire({
                         position: "center",
                         icon: "success",
-                        title: response.status,
+                        title: "The product added successfully",
                         showConfirmButton: false,
                         timer: 2000,
+                    }).then((_)=>{
+                        window.location.reload();
                     });
                 } 
             },
