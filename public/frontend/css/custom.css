@@ -49,16 +49,16 @@ a{
   transition: transform .3s;
 }
 .small_desc{
-  font-size: 13px;
+  font-size: 16px;
   color:#cbcbcb;
 }
 .info{
   line-height: 17px;
 }
 .cost span{
-  color: #fb35fb;
+  color: hsl(249, 93%, 52%);
   font-weight: bold;
-  font-size: 20;
+  font-size: 26px;
 }
 .btn_add_cart{
   background-color:#cbcbcb;
@@ -72,3 +72,25 @@ a{
 h5 {
   font-size: 1.8vh;
 }
+#lbl-original-price{
+  font-size: 12px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: 0px; 
+    margin-top: 0px; 
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.badge-original-price{
+  width: 90px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.badge-original-price span{
+  font-size: 20px;
+}
+

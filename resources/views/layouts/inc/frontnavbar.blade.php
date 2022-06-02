@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-0 bg-body rounded">
+{{-- <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-0 bg-body rounded"> --}}
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">E-Shop</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -10,13 +11,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ 'feature_category' }}">Category</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ 'cart' }}"><i class="fa fa-shopping-cart" style="font-size: 16px;"></i></a>
-                    <span class='badge badge-warning' id='lblCartCount'>{{ isset($countcart)? $countcart:0 }}</span>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ 'cart' }}"><i class="fa fa-shopping-cart" ></i></a>
+                    <div class='badge badge-warning' id='lblCartCount'>
+                        <span >{{ isset($countcart)? $countcart:0 }}</span>
+                    </div>
+                    
                 </li>
-
                 @if (Route::has('login'))
-
                 @auth
                 <li class="nav-item">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
