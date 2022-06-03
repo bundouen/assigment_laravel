@@ -3,7 +3,6 @@
 @section('content')
 
 <div class="container">
-
     <div class="card shadow rounded">
 
         @php
@@ -34,12 +33,12 @@
             </div>
             @foreach ($orders as $item )
             @php
-                $k++ 
+            $k++
             @endphp
             <div class="row my-2">
                 <div class="col-md-1">{{$item->status==0?"Pending":"Completed" }}</div>
                 <div class="col-md-2">{{ $item->tracking }}</div>
-                <div class="col-md-2">{{ $item->created_at }}</div>
+                <div class="col-md-2">{{ $item->created_at->toDateTimeString() }}</div>
                 <div class="col-md-2">{{ $item->total }}</div>
                 <div class="col-md-5">
                     <td class="my-auto order-details ">
@@ -60,6 +59,7 @@
                                                         <th scope="col">Product Name</th>
                                                         <th scope="col">Price</th>
                                                         <th scope="col">Quantity</th>
+                                                        <th scope="col">Image</th>
                                                     </tr>
                                                 </thead>
 
@@ -69,14 +69,25 @@
                                                     @endphp
                                                     @foreach ($item->orderItems as $order_item )
                                                     <tr>
+
                                                         <td class="my-auto">{{ $order_item->products->name }}</td>
                                                         <td class="my-auto">{{ $order_item->products->selling_price
                                                             }}</td>
                                                         <td class="my-auto">{{ $order_item->qty }}</td>
+
+                                                        <td class="my-auto"><img src="{{ "
+                                                                asset/uploads/product/".$order_item->products->image
+                                                            }}" width='50px'></td>
+
                                                     </tr>
 
                                                     @endforeach
                                                 </tbody>
+                                                <tfoot style="font-size: 12px; color:dimgray;">
+                                                    <td class="my-auto">{{ $item->phone }}</td>
+                                                    <td class="my-auto">{{ $item->address1}}</td>
+                                                    <td class="my-auto">{{ $item->address2 }}</td>
+                                                </tfoot>
                                             </table>
                                         </div>
 
@@ -89,6 +100,7 @@
                 </div>
             </div>
             <hr>
+
             @endforeach
         </div>
     </div>
