@@ -7,6 +7,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\ImportController;
+use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Admin\Product\ProductController;
@@ -66,6 +67,11 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::put('update_product/{id}',[ProductController::class,'update']);
     Route::get('delete_product/{id}',[ProductController::class,'destroy']);
 
+//Order
+    Route::get('orders',[AdminOrderController::class,'index']);
+    
+//User
+    Route::get('users',[DashboardController::class,'user']);
 
     Route::get('import',[ImportController::class,'index']);
     

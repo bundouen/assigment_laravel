@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Cart;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -41,7 +42,10 @@ class RouteServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $cart=Cart::where('user_id',Auth::id())->get();
             $countcart=count($cart);
+            $order=Order::where('status','0')->get();
+            $countOrder=count($order);
             $view->with('countcart', $countcart);
+            $view->with('countOrder', $countOrder);
         });
     }
 

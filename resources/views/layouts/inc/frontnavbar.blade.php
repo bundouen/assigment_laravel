@@ -10,25 +10,27 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ 'feature_category' }}">Category</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ 'cart' }}"><i class="fa fa-shopping-cart"></i></a>
-                        <div class="badge badge-warning" id="lblCartCount">
-                            <span>{{
-                                isset($countcart) ? $countcart : 0
-                                }}</span>
-                        </div>
-                    </li>
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ 'feature_category' }}">Category</a>
+                        </li>
+                        <li class="nav-item ">
+                            <div class="d-flex">
+                                <a class="nav-link" href="{{ 'cart' }}"><i class="fa fa-shopping-cart"></i></a>
+                                <span class="badge badge-warning" id="lblCartCount">
+                                    {{isset($countcart) ? $countcart : 0}}
+                                </span>
+                            </div>
 
+                        </li>
+                        
                     @if (Route::has('login')) @auth
                     <li class="nav-item mr-3">
                         <div class="dropdown">
-                            <a class="btn dropdown-toggle"  id="dropdownAuth"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="btn dropdown-toggle" id="dropdownAuth" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 {{ Auth::user()->name }}
-                        </a>
+                            </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownAuth">
                                 <li>
                                     <a class="dropdown-item" href="{{ url('my_orders') }}">My Orders</a>

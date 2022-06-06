@@ -53,11 +53,20 @@
           </a>
         </li>
         <li class="nav-item dropdown pe-2 d-flex align-items-center">
-          <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
+          
+          <div class="d-flex">
+            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
             aria-expanded="false">
             <i class="fa fa-bell cursor-pointer"></i>
           </a>
-          <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+          @if ($countOrder>0)
+            <span class="badge badge-warning" id="lblCartCount">
+                {{isset($countOrder) ? $countOrder :1}}
+            </span>
+          @endif
+            
+        </div>
+          {{-- <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
             <li class="mb-2">
               <a class="dropdown-item border-radius-md" href="javascript:;">
                 <div class="d-flex py-1">
@@ -130,7 +139,7 @@
                 </div>
               </a>
             </li>
-          </ul>
+          </ul> --}}
         </li>
       </ul>
     </div>

@@ -21,9 +21,9 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        
         if(Auth::check())
         {
-           
             if(Auth::user()->role_as == '1')
             {
                 return $next($request);

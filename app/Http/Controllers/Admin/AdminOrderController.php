@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller
+class AdminOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +15,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
-    }
-    public function user()
-    {
-        return view('admin.user.index');
+        $roders=Order::where('status','0')->get();
+        return view('admin.order.index',compact('roders'));
     }
 
     /**

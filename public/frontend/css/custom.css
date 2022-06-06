@@ -17,12 +17,24 @@ font-weight: bold;
 a{
   text-decoration: none !important;
 }
-.badge {
-  padding-left: 9px;
-  padding-right: 9px;
+.badge-show {
+  color: #fff;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding: 8px 15px;
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   border-radius: 9px;
+}
+
+.badge {
+  width: 16px;
+  height: 16px;
+  /* padding-left: 8px;
+  padding-right: 9px; */
+  /* -webkit-border-radius: 9px;
+  -moz-border-radius: 9px; */
+  border-radius: 16px;
 }
 
 .label-warning[href],
@@ -33,10 +45,11 @@ a{
     font-size: 12px;
     background: #ff0000;
     color: #fff;
-    padding: 0 5px;
+    padding: 2px 2px;
     vertical-align: top;
-    margin-left: 18px; 
-    margin-top: -35px; 
+    margin-left: -15px; 
+    margin-top: 2px; 
+
 }
 .card-product{
   border: none;

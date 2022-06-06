@@ -19,7 +19,7 @@
                     <h2 class="mb-0">
                         {{ $productdetail->name }}
                         @if ($productdetail->trending==='1')
-                        <label style="font-size: 16px;" class="float-end badge bg-danger trending_tag">Trending</label>
+                        <label style="font-size: 16px;" class="float-end badge-show  bg-danger trending_tag">Trending</label>
                         @endif
 
                     </h2>
@@ -31,9 +31,9 @@
                     </p>
                     <hr>
                     @if ($productdetail->qty>0)
-                    <label style="font-size: 16px;" class="badge bg-success">In stock</label>
+                    <label style="font-size: 16px;" class="badge-show  bg-success">In stock</label>
                     @else
-                    <label style="font-size: 16px;" class="badge bg-danger">Out of stock</label>
+                    <label style="font-size: 16px;" class="badge-show  bg-danger">Out of stock</label>
                     @endif
                     <div class="row mt-2">
                         <div class="col-md-2">
