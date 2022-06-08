@@ -91,7 +91,8 @@
                                                 </tfoot>
 
                                             </table>
-                                            <a href="print-pdf" class="btn btn-success">Paymented</a>
+                                            <a href="{{ 'print-pdf/'.$item->id }}" class="btn btn-success">Paymented</a>
+                                            {{-- <a href="{{ 'view-pdf/'.$item->id }}" class="btn btn-success">View Pdf</a> --}}
                                         </div>
 
                                     </div>

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Order;
+// use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use PDF;
 
 class AdminOrderController extends Controller
 {
@@ -46,9 +48,21 @@ class AdminOrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // public function view_pdf($id){
+    //     $orders=Order::where('id',$id)->where('status','0')->first();
+    //     return view('admin.order.invoice-pdf', compact('orders'));
+         
+    // } 
     public function show($id)
     {
-        //
+        $orders=Order::where('id',$id)->where('status','0')->first();
+        // PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);    
+        // $pdf = PDF::loadView('admin.order.pdf',compact('orders'))->setOptions(['dpi' => 150,'defaultFont' => 'sans-serif'])->setPaper('A4');
+        $pdf = PDF::loadView('admin.order.invoice-pdf',compact('orders'))->setOptions(['defaultFont' => 'sans-serif'])->setPaper('A4');
+        $orders->status=1;
+        $orders->update();
+        return $pdf->download('invoice.pdf');
     }
 
     /**
@@ -69,9 +83,12 @@ class AdminOrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update( $id)
     {
-        //
+        // $orders=Order::where('id',$id)->where('status','0')->first();
+        // $pdf = PDF::loadView('admin.order.invoice-pdf',compact('orders'))->setOptions(['defaultFont' => 'sans-serif'])->setPaper('A4');
+       
+        // return $pdf->download('invoice.pdf');
     }
 
     /**
