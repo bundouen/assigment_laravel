@@ -68,6 +68,7 @@
 
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('admin/js/custom.js') }}"></script>
 
 
 

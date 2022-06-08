@@ -8,8 +8,11 @@
         $k=1
         @endphp
         <div class="text-center">
+
             <div class="card-header">
-                <h4>All Orders</h4>
+
+                <h4>{{ count($roders)>0 ?'All Orders':'No Orders' }}</h4>
+
                 <hr>
                 <div class="row">
                     <div class="col-md-2">
@@ -85,14 +88,25 @@
                                                     @endforeach
                                                 </tbody>
                                                 <tfoot style="font-size: 12px; color:dimgray;">
-                                                        <td class="my-auto">{{ $item->phone }}</td>
-                                                        <td class="my-auto">{{$item->address1}}</td>
-                                                        <td class="my-auto">{{ $item->address2 }}</td>
+                                                    <td class="my-auto">{{ $item->phone }}</td>
+                                                    <td class="my-auto">{{$item->address1}}</td>
+                                                    <td class="my-auto">{{ $item->address2 }}</td>
                                                 </tfoot>
 
                                             </table>
-                                            <a href="{{ 'print-pdf/'.$item->id }}" class="btn btn-success">Paymented</a>
-                                            {{-- <a href="{{ 'view-pdf/'.$item->id }}" class="btn btn-success">View Pdf</a> --}}
+                                            <input type="hidden" class="order_id" value="{{ $item->id }}">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <a href="{{ 'print-pdf/'.$item->id }}"
+                                                        class="btn btn-warning  ">Export
+                                                        PDF</a>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button class="btn btn-success btnPayment">Paymented</button>
+                                                </div>
+                                            </div>
+                                            {{-- <a href="{{ 'view-pdf/'.$item->id }}" class="btn btn-success">View
+                                                Pdf</a> --}}
                                         </div>
 
                                     </div>
@@ -104,7 +118,6 @@
                 </div>
             </div>
             <hr>
-
             @endforeach
         </div>
     </div>

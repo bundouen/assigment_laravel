@@ -54,15 +54,26 @@ class AdminOrderController extends Controller
     //     return view('admin.order.invoice-pdf', compact('orders'));
          
     // } 
-    public function show($id)
+    public function printpdf($id)
     {
         $orders=Order::where('id',$id)->where('status','0')->first();
-        // PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);    
-        // $pdf = PDF::loadView('admin.order.pdf',compact('orders'))->setOptions(['dpi' => 150,'defaultFont' => 'sans-serif'])->setPaper('A4');
-        $pdf = PDF::loadView('admin.order.invoice-pdf',compact('orders'))->setOptions(['defaultFont' => 'sans-serif'])->setPaper('A4');
-        $orders->status=1;
-        $orders->update();
-        return $pdf->download('invoice.pdf');
+        if($orders){
+            $pdf = PDF::loadView('admin.order.invoice-pdf',compact('orders'))->setOptions(['defaultFont' => 'sans-serif'])->setPaper('A4');
+            return $pdf->download("invoice_$orders->tracking.pdf");
+        }
+            
+    
+        
+    }
+    public function payment(Request $req){
+        $id=$req->input('order_id');
+        $orders=Order::where('id',$id)->where('status','0')->first();
+        if($orders){
+            $orders->status=1;
+            $orders->update();
+            return response()->json(['status'=>'Successfully']);
+        }
+        
     }
 
     /**

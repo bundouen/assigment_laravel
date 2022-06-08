@@ -107,9 +107,9 @@
                         <div><strong>{{ $item->products->name }}</strong></div>
                     </td>
                     <td><strong>{{ $item->qty }}</strong></td>
-                    <td><strong>{{ $item->products->selling_price }}</strong></td>
-                    <td class="text-right">${{ $item->products->selling_price *
-                        $item->qty}}</td>
+                    <td><strong>${{ $item->products->selling_price }}</strong></td>
+                    <td class="text-right"><strong>${{ $item->products->selling_price *
+                        $item->qty}}</strong></td>
                 </tr>
                 @endforeach
                 {{-- <tr>
@@ -146,10 +146,6 @@
             <div class="col-xs-8 invbody-terms">
                 Thank you for your business. <br>
                 <br>
-                {{-- <h4>Payment Terms</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eius quia, aut doloremque, voluptatibus
-                    quam ipsa sit sed enim nam dicta. Soluta eaque rem necessitatibus commodi, autem facilis iusto
-                    impedit!</p> --}}
             </div>
         </div>
     </div>

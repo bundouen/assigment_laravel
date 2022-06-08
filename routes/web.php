@@ -70,7 +70,8 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 //Order
     Route::get('orders',[AdminOrderController::class,'index']);
     // Route::get('view-pdf/{id}',[AdminOrderController::class,'view_pdf']);
-    Route::get('/print-pdf/{id}',[AdminOrderController::class,'show']);
+    Route::get('print-pdf/{id}',[AdminOrderController::class,'printpdf']);
+    Route::get('print-pdf',[AdminOrderController::class,'payment']);
     
     
 //User

@@ -55,7 +55,7 @@
         <li class="nav-item dropdown pe-2 d-flex align-items-center">
 
           <div class="d-flex mb-0">
-            <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
+            <a href="/orders" class="nav-link text-body p-0"
               aria-expanded="false">
               <i class="fa fa-bell cursor-pointer"></i>
             </a>
