@@ -3,7 +3,8 @@
     <div class="col-md-3 mb-3">
         <div class="card card-product mt-3 product_data">
             <a href="{{ url('view_category/'.$item->category->id.'/'.$item->id)}}">
-                <div class='badge-original-price' id='lbl-original-price'>
+
+                <div class="{{ $item->original_price >0? 'badge-original-price':'badge-original-price bg-light text-light' }}" id='lbl-original-price'>
                     <span><s>${{ $item->original_price }}</s></span>
                 </div>
 

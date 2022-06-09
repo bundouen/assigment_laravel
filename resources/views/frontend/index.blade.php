@@ -15,9 +15,12 @@
                     <div class="item py-4">
                         <a href="{{ url('view_category/'.$item->category->id.'/'.$item->id)}}">
                             <div class="card card-product">
-                                <div class="badge-original-price" id="lbl-original-price">
-                                    <span><s>${{ $item->original_price }}</s></span>
-                                </div>
+                                
+                                    <div class="{{ $item->original_price>0? 'badge-original-price':'badge-original-price bg-light text-light' }} " id="lbl-original-price">
+                                        <span><s>${{ $item->original_price }}</s></span>
+                                    </div>
+                                
+                                
                                 <div class="product align-items-center p-2 text-center">
                                     <img src="{{ asset('asset/uploads/product/'.$item->image) }}" class="rounded mb-2"
                                         height="200" />

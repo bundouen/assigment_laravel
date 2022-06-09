@@ -19,12 +19,15 @@
                     <h2 class="mb-0">
                         {{ $productdetail->name }}
                         @if ($productdetail->trending==='1')
-                        <label style="font-size: 16px;" class="float-end badge-show  bg-danger trending_tag">Trending</label>
+                        <label style="font-size: 16px;"
+                            class="float-end badge-show  bg-danger trending_tag">Trending</label>
                         @endif
 
                     </h2>
                     <hr>
-                    <label class="me-3">Orginal Price : <s>${{ $productdetail->original_price }}</s></label>
+                    @if ($productdetail->original_price>0)
+                        <label class="me-3">Orginal Price : <s>${{ $productdetail->original_price }}</s></label>
+                    @endif
                     <label class="fw-bold">Selling Price :${{ $productdetail->selling_price }}</label>
                     <p class="mt-3">
                         {!! $productdetail->small_description !!}

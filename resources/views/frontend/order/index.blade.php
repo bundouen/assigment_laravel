@@ -14,7 +14,7 @@
                 <h4>All {{ Auth::user()->name }} Order</h4>
                 <hr>
                 <div class="row">
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <h4>Status</h4>
                     </div>
                     <div class="col-md-2 ">
@@ -23,7 +23,7 @@
                     <div class="col-md-2 ">
                         <h4>Order Date</h4>
                     </div>
-                    <div class="col-md-2 ">
+                    <div class="col-md-1 ">
                         <h4>Total</h4>
                     </div>
                     <div class="col-md-5 ">
@@ -35,11 +35,11 @@
             @php
             $k++
             @endphp
-            <div class="row my-2">
-                <div class="col-md-1">{{$item->status==0?"Pending":"Completed" }}</div>
+            <div class="row my-2 ">
+                <div class="col-md-2 ">{{$item->status==0?"Pending":"Completed" }}</div>
                 <div class="col-md-2">{{ $item->tracking }}</div>
                 <div class="col-md-2">{{ $item->created_at->toDateTimeString() }}</div>
-                <div class="col-md-2">{{ $item->total }}</div>
+                <div class="col-md-1">{{ $item->total }}</div>
                 <div class="col-md-5">
                     <td class="my-auto order-details ">
                         <p>
