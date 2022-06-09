@@ -5,8 +5,7 @@
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">E-Shop</a>
 
-
-            <div class="search-bar">
+            <div class="search-bar ">
                 <form action="{{ url('searchproduct') }}" method="POST">
                     @csrf
                     <div class="input-group">

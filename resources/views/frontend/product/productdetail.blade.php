@@ -26,7 +26,7 @@
                     </h2>
                     <hr>
                     @if ($productdetail->original_price>0)
-                        <label class="me-3">Orginal Price : <s>${{ $productdetail->original_price }}</s></label>
+                    <label class="me-3">Orginal Price : <s>${{ $productdetail->original_price }}</s></label>
                     @endif
                     <label class="fw-bold">Selling Price :${{ $productdetail->selling_price }}</label>
                     <p class="mt-3">
@@ -51,12 +51,13 @@
                         <div class="col-md-10">
                             <br />
                             @if ($productdetail->qty>0)
-                            <button class="btn btn-success me-3 float-start btnAddToCart">Add to Cart <i
+                            <button class="btn btn-success me-3 mb-2 float-start btnAddToCart">Add to Cart <i
                                     class="fa fa-shopping-cart"></i> </button>
 
                             @endif
+                            {{--
                             <button class="btn btn-success me-3 float-start">Add to Wishlist <i
-                                    class="fa fa-heart"></i></button>
+                                    class="fa fa-heart"></i></button> --}}
 
                         </div>
                     </div>
