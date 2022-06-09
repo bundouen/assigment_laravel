@@ -4,26 +4,40 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">E-Shop</a>
+
+
+            <div class="search-bar">
+                <form action="{{ url('searchproduct') }}" method="POST">
+                    @csrf
+                    <div class="input-group">
+                        <input type="search" class="form-control" id="search_product" name="product_name" required
+                            placeholder="Search Product" aria-describedby="basic-addon1" />
+                        <button type="submit" class="input-group-text">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ 'feature_category' }}">Category</a>
-                        </li>
-                        <li class="nav-item ">
-                            <div class="d-flex">
-                                <a class="nav-link" href="{{ 'cart' }}"><i class="fa fa-shopping-cart"></i></a>
-                                <span class="badge badge-warning" id="lblCartCount">
-                                    {{isset($countcart) ? $countcart : 0}}
-                                </span>
-                            </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ 'feature_category' }}">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="d-flex">
+                            <a class="nav-link" href="{{ 'cart' }}"><i class="fa fa-shopping-cart"></i></a>
+                            <span class="badge badge-warning" id="lblCartCount">
+                                {{ isset($countcart) ? $countcart : 0 }}
+                            </span>
+                        </div>
+                    </li>
 
-                        </li>
-                        
                     @if (Route::has('login')) @auth
                     <li class="nav-item mr-3">
                         <div class="dropdown">

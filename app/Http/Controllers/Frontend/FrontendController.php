@@ -60,7 +60,28 @@ class FrontendController extends Controller
             return redirect('/')->with('status','Category not found!');
         }
     }
+    public function productlistAjax(){
+        $products = Product::select('name')->where('status', '0')->get();
+        $data = [];
+        foreach ($products as $item){
+            $data[] = $item['name'];
+        }
+        return $data;
+    }
 
+    public function searchProduct(Request $request){
+        $searched_product = $request->product_name;
+        if($searched_product != ""){
+            $product = Product::where("name", "LIKE", "%$searched_product%")->first();
+            if($product){
+                return redirect('view_category/'.$product->category->id.'/'.$product->id);
+            }else{
+                return redirect()->back()->with("status", "No products matched your search");
+            }
+        }else{
+            return redirect()->back();
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *

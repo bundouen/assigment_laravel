@@ -32,6 +32,9 @@ Route::get('feature_category',[FrontendController::class,'category']);
 Route::get('view_category/{id}',[FrontendController::class,'viewcategory']);
 Route::get('view_category/{cate_id}/{pid}',[FrontendController::class,'viewproduct']);
 
+Route::get('product-list', [FrontendController::class, 'productlistAjax']);
+Route::post('searchproduct', [FrontendController::class, 'searchProduct']);
+
 
 Auth::routes();
 
