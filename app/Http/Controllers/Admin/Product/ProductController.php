@@ -42,6 +42,24 @@ class ProductController extends Controller
      */
     public function store(Request $req)
     {
+        $req->validate([
+            'cate_id'=>'required',
+            'name'=>'required|min:2',
+            'small_description'=>'required|min:6',
+            'description'=>'required|min:10',
+            'original_price'=>'required',
+            'selling_price'=>'required',
+            'qty'=>'required',
+            'tax'=>'required',
+        ],
+        [
+            'cate_id.required'=>'Please select category',
+            'name.required'=>'Please input your product name',
+            'selling_price.required'=>'Please input your selling price',
+            'qty.required'=>'Please input quantity of product',
+            
+        ]
+    );
         $products=new Product();
         $existProduct = Product::where('name', '=', $req->input('name'))->first();
         if($existProduct!=null){

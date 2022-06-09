@@ -40,6 +40,16 @@ class CategoryController extends Controller
      */
     public function store(Request $req)
     {
+        $req->validate([
+            'name'=>'required|min:2|unique:categories',
+            'slug'=>'required|min:2',
+            'description'=>'required|min:10',
+            
+        ],
+        [
+            'name.required'=>'Please enter your name',
+        ]
+    );
         $category=new Category();
         $existCategory=Category::where('name','=',$req->input('name'))->first();
         if($existCategory!=null){

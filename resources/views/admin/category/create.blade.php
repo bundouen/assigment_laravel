@@ -11,14 +11,29 @@
       <div class="col-md-6">
         <label for="name" class="form-label">Category Name</label>
         <input type="text" class="form-control"  id="name" name="name">
+        <span class="text-danger">
+          @error('name')
+            {{ $message }}
+          @enderror
+        </span>
       </div>
       <div class="col-md-6">
         <label for="slug" class="form-label">Slug</label>
         <input type="text" class="form-control" id="slug" name="slug">
+        <span class="text-danger">
+          @error('slug')
+            {{ $message }}
+          @enderror
+        </span>
       </div>
       <div class="col-12">
         <label for="description" class="form-label">Description</label>
         <textarea class="form-control" id="description" name="description"></textarea>
+        <span class="text-danger">
+          @error('description')
+            {{ $message }}
+          @enderror
+        </span>
       </div>
       <div class="col-md-6">
         <div class="form-check">

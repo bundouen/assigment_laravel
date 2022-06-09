@@ -23,9 +23,9 @@ return new class extends Migration
             $table->string('selling_price');
             $table->string('image');
             $table->string('qty');
-            $table->string('tax');
-            $table->string('status');
-            $table->string('trending');
+            $table->integer('tax')->default('0');
+            $table->tinyInteger('status')->default('0');
+            $table->tinyInteger('trending')->default('0');
             $table->mediumText('meta_title')->nullable();
             $table->mediumText('meta_keywords')->nullable();
             $table->mediumText('meta_description')->nullable();

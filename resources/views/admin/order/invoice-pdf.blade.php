@@ -75,9 +75,11 @@
 
                         </td>
                         <td>
-                            <div class="text-right">
-                                <span>Invoice Num: {{ $orders->tracking }}</span><br>
-                                <span>Invoice Date: {{ $orders->created_at->toDateTimeString()}}</span>
+                            <div >
+                                Invoice ID: <span class="text-right"> {{ $orders->tracking }}</span>
+                            </div>
+                            <div>
+                                Invoice Date: <span class="text-right"> {{ $orders->created_at->toDateTimeString()}}</span>
                             </div>
 
                         </td>
@@ -112,15 +114,6 @@
                         $item->qty}}</strong></td>
                 </tr>
                 @endforeach
-                {{-- <tr>
-                    <td>
-                        <div><strong>Service</strong></div>
-                        <p>Description here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt maiores
-                            placeat similique nisi. Nisi ratione, molestias exercitationem illo reiciendis cumque?</p>
-                    </td>
-                    <td></td>
-                    <td class="text-right">$600</td>
-                </tr> --}}
             </tbody>
         </table>
         <hr />

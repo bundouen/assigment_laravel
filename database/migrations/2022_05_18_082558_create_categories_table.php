@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('image');
             $table->string('status')->default(0);
             $table->string('popular')->default(0);
-            $table->string('meta_title');
-            $table->string('meta_descrip');
-            $table->string('meta_keywords');
+            $table->string('meta_title')->nullable();
+            $table->string('meta_descrip')->nullable();
+            $table->string('meta_keywords')->nullable();
             
             $table->timestamps();
         });

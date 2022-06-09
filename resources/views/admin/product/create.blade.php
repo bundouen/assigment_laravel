@@ -14,30 +14,65 @@
                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
+                <span class="text-danger">
+                    @error('cate_id')
+                      {{ $message }}
+                    @enderror
+                  </span>
             </div>
             <div class="col-md-4">
                 <label for="name" class="form-label">Product Name</label>
                 <input type="text" class="form-control" id="name" name="name" />
+                <span class="text-danger">
+                    @error('name')
+                      {{ $message }}
+                    @enderror
+                  </span>
             </div>
             <div class="col-md-4">
                 <label for="small_description" class="form-label">Small Descrioption</label>
                 <input type="text" class="form-control" id="small_description" name="small_description" />
+                <span class="text-danger">
+                    @error('small_description')
+                      {{ $message }}
+                    @enderror
+                  </span>
             </div>
             <div class="col-12">
                 <label for="description" class="form-label">Description</label>
                 <textarea class="form-control" id="description" name="description"></textarea>
+                <span class="text-danger">
+                    @error('description')
+                      {{ $message }}
+                    @enderror
+                  </span>
             </div>
             <div class="col-md-4">
                 <label for="original_price">Original Price</label>
                 <input type="number" class="form-control" id="original_price" name="original_price" />
+                <span class="text-danger">
+                    @error('original_price')
+                      {{ $message }}
+                    @enderror
+                  </span>
             </div>
             <div class="col-md-4">
                 <label class="form-label" for="qty">Selling Price</label>
                 <input type="number" class="form-control" id="selling_price" name="selling_price" />
+                <span class="text-danger">
+                    @error('selling_price')
+                      {{ $message }}
+                    @enderror
+                  </span>
             </div>
             <div class="col-md-4">
                 <label class="form-label" for="taxt"> Quantity</label>
                 <input type="number" class="form-control" id="qty" name="qty" />
+                <span class="text-danger">
+                    @error('qty')
+                      {{ $message }}
+                    @enderror
+                  </span>
             </div>
             <div class="col-md-6">
                 <div class="form-check">
@@ -53,7 +88,12 @@
             </div>
             <div class="col-md-12">
                 <label class="form-label" for="status">Taxation</label>
-                <input type="number" class="form-control" id="tax" name="tax" />
+                <input type="number" class="form-control" id="tax" value="0" name="tax" />
+                <span class="text-danger">
+                    @error('tax')
+                      {{ $message }}
+                    @enderror
+                  </span>
             </div>
 
            

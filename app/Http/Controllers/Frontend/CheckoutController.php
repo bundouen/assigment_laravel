@@ -50,6 +50,15 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'fname'=>'required',
+            'lname'=>'required',
+            'email'=>'required',
+            'phone'=>'required',
+            'address1'=>'required',
+            'address2'=>'required',
+            'city'=>'required',
+        ]);
         $date=strtotime("2022/06/01"); ;
         $order=new Order;
         $order->user_id=Auth::user()->id;  //Auth::id()

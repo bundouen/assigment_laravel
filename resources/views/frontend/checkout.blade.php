@@ -17,30 +17,66 @@ Checkout
                             <div class="col-md-6 mb-3">
                                 <input type="text" class="form-control" id="fname" placeholder="Firs Name" name="fname"
                                     value="{{isset($reciever)?$reciever->fname:Auth::user()->name}}" />
+                                    <span class="text-danger">
+                                        @error('fname')
+                                          {{ $message }}
+                                        @enderror
+                                      </span>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <input type="text" class="form-control" id="lname" placeholder="Last Name" name="lname"
                                     value="{{ isset($reciever)?$reciever->lname:'' }}" />
+                                    <span class="text-danger">
+                                        @error('lname')
+                                          {{ $message }}
+                                        @enderror
+                                      </span>
+                            
                             </div>
                             <div class="col-md-6 mb-3">
                                 <input type="email" class="form-control" placeholder="Enter Your Email" name="email"
                                     value="{{isset($reciever)? $reciever->email:Auth::user()->email }}" />
+                                    <span class="text-danger">
+                                        @error('email')
+                                          {{ $message }}
+                                        @enderror
+                                      </span>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <input type="text" class="form-control" placeholder="Phone number" name="phone"
                                     value="{{isset($reciever)? $reciever->phone:'' }}" />
+                                    <span class="text-danger">
+                                        @error('phone')
+                                          {{ $message }}
+                                        @enderror
+                                      </span>
                             </div>
                             <div class="col-12 mb-3">
                                 <input type="text" class="form-control" placeholder="Address 1" name="address1"
                                     value="{{isset($reciever)? $reciever->address1:'' }}" />
+                                    <span class="text-danger">
+                                        @error('address1')
+                                          {{ $message }}
+                                        @enderror
+                                      </span>
                             </div>
                             <div class="col-12 mb-3">
                                 <input type="text" class="form-control" placeholder="Address 2" name="address2"
                                     value="{{ isset($reciever)?$reciever->address2:'' }}" />
+                                    <span class="text-danger">
+                                        @error('address2')
+                                          {{ $message }}
+                                        @enderror
+                                      </span>
                             </div>
                             <div class="col-12 mb-3">
                                 <input type="text" class="form-control" placeholder="City" name="city"
                                     value="{{ isset($reciever)?$reciever->city:'' }}" />
+                                    <span class="text-danger">
+                                        @error('city')
+                                          {{ $message }}
+                                        @enderror
+                                      </span>
                             </div>
                             @php
                                 $date = strtotime( date("Y-m-d H:i:s"))
