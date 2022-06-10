@@ -8,7 +8,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>E-Shop</title>
+  <title>Handicraft Shop</title>
   {{-- <title>{{ config('app.name', 'E-Shop') }}</title> --}}
 
 

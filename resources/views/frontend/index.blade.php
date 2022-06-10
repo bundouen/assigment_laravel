@@ -1,4 +1,4 @@
-@extends('layouts.front') @section('title','Welcome to E-Shop')
+@extends('layouts.front') @section('title','Welcome to Handicarft')
 @section('content') @include('layouts.inc.slider')
 <div class="py-5">
     <div class="container">

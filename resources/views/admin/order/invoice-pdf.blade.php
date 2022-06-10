@@ -33,11 +33,11 @@
         <div class="row">
             <div class="col-xs-7">
                 <h4>From:</h4>
-                <strong>E SHOP</strong><br>
+                <strong>HANDICRAFT SHOP</strong><br>
                 {{-- 123 Company Ave. <br>
                 Toronto, Ontario - L2R 5A4<br> --}}
                 P: (+855) 123-4567 <br>
-                E: eshop@gmail.com <br>
+                E: handicarftshop@gmail.com <br>
                 <br>
             </div>
 
