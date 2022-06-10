@@ -55,8 +55,8 @@
                                     class="fa fa-shopping-cart"></i> </button>
 
                             @endif
-                            {{--
-                            <button class="btn btn-success me-3 float-start">Add to Wishlist <i
+                            
+                            {{-- <button class="btn btn-success me-3 float-start">Add to Wishlist <i
                                     class="fa fa-heart"></i></button> --}}
 
                         </div>
