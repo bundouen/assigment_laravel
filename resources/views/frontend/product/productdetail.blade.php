@@ -4,7 +4,7 @@
 @section('content')
 <div class="py-3 mb-2 shadow-sm bg-warning border-top rounded">
     <div class="container">
-        <div class="mb-0">Collections / {{ $productdetail->category->name }} / {{ $productdetail->name }}</div>
+        <div class="mb-0">Collections / <a href="{{ url('view_category/'. $productdetail->category->id) }}">{{ $productdetail->category->name }}</a>/ {{ $productdetail->name }}</div>
     </div>
 </div>
 
@@ -51,13 +51,13 @@
                         <div class="col-md-10">
                             <br />
                             @if ($productdetail->qty>0)
-                            <button class="btn btn-success me-3 mb-2 float-start btnAddToCart">Add to Cart <i
+                            <button class="btn btn-primary me-3 mb-2 float-start btnAddToCart">Add to Cart <i
                                     class="fa fa-shopping-cart"></i> </button>
 
                             @endif
-                            
-                            {{-- <button class="btn btn-success me-3 float-start">Add to Wishlist <i
-                                    class="fa fa-heart"></i></button> --}}
+
+                            <button class="btn btn-success me-3 float-start addToWishlist">Add to Wishlist <i
+                                    class="fa fa-heart"></i></button>
 
                         </div>
                     </div>

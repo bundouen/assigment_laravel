@@ -49,7 +49,7 @@
             </div>
             <div class="col-md-4">
                 <label for="original_price">Original Price</label>
-                <input type="number" class="form-control" id="original_price" name="original_price" />
+                <input type="number" class="form-control" id="original_price" name="original_price" step=".01" />
                 <span class="text-danger">
                     @error('original_price')
                       {{ $message }}
@@ -58,7 +58,7 @@
             </div>
             <div class="col-md-4">
                 <label class="form-label" for="qty">Selling Price</label>
-                <input type="number" class="form-control" id="selling_price" name="selling_price" />
+                <input type="number" class="form-control" id="selling_price" name="selling_price" step=".01"/>
                 <span class="text-danger">
                     @error('selling_price')
                       {{ $message }}

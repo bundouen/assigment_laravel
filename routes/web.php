@@ -10,6 +10,7 @@ use App\Http\Controllers\Frontend\ImportController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 
@@ -44,13 +45,22 @@ Route::post('addtocart',[CartController::class,'store']);
 Route::post('delete_cart_item',[CartController::class,'destroy']);
 Route::post('update_qty',[CartController::class,'updateqty']);
 
+Route::post('add_to_wishlist',[WishlistController::class,'store']);
+Route::get('wishlist_count',[WishlistController::class,'count_record']);
+Route::post('delete_wishlist_item',[WishlistController::class,'destroy']);
+
+
 
 Route::middleware(['auth'])->group(function () {
     Route::get('cart',[CartController::class,'index']);
     Route::get('checkout',[CheckoutController::class,'index']);
     Route::post('place_order',[CheckoutController::class,'store']);
     Route::get('my_orders',[OrderController::class,'index']);
+
+    //Wishlist
+    Route::get('wishlist',[WishlistController::class,'index']);
     
+
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
