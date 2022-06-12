@@ -1,7 +1,12 @@
 @extends('layouts.front') @section('title','Welcome to Handicarft')
-@section('content') @include('layouts.inc.slider')
-<div class="py-5">
+@section('content') 
+
+<div class="">
     <div class="container">
+        <div class="slider mb-3">
+             @include('layouts.inc.slider')
+        </div>
+       
         <section class="feature-product mb-5">
             <div class="row">
                 <div class="py-1 shadow-sm bg-warning border-top rounded">

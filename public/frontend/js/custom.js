@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    loadWishlistCount();
+    // loadWishlistCount();
     $(".btnAddToCart").click(function (e) {
         e.preventDefault();
         var prodId = $(this).closest(".product_data").find(".prod_id").val();
@@ -44,7 +44,7 @@ $(document).ready(function () {
                         title: "Login to continue",
                         showConfirmButton: false,
                         timer: 2000,
-                    });
+                    }).then((_)=>window.location.href='/login');
                 }else{
                     Swal.fire({
                         position: "center",

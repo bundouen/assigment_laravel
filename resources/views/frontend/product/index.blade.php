@@ -6,7 +6,7 @@
 <div class="py-1">
     <div class="py-3 mb-4 shadow-sm bg-warning border-top">
         <div class="container">
-            <h3 class="mb-0 text-light "><a href="{{ url('/') }}"> Collections</a> / {{ $category->name }}</h3>
+            <h3 class="mb-0 text-light "><a href="{{ url('/') }}"> Home</a> / {{ $category->name }}</h3>
         </div>
     </div>
     <div class="container">

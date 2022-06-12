@@ -12,9 +12,7 @@
  
         </div>
         <div class="card-body">
-            @php
-            $total=0;
-            @endphp
+            
             @foreach ($wishlists as $item )
             <div class="row product_data">
                 <div class="col-md-2 my-auto">

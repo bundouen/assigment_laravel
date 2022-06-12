@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -44,8 +45,10 @@ class RouteServiceProvider extends ServiceProvider
             $countcart=count($cart);
             $order=Order::where('status','0')->get();
             $countOrder=count($order);
+            $wishlist_count=Wishlist::where('user_id',Auth::id())->count();
             $view->with('countcart', $countcart);
             $view->with('countOrder', $countOrder);
+            $view->with('countWishlist', $wishlist_count);
         });
     }
 

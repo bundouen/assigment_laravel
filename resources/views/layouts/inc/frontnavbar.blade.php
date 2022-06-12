@@ -26,7 +26,7 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    
+
 
 
                     <li class="nav-item">
@@ -35,18 +35,22 @@
                     <li class="nav-item">
                         <div class="d-flex">
                             <a class="nav-link" href="{{ 'cart' }}"><i class="fa fa-shopping-cart"></i></a>
+                            @if ($countcart>0)
                             <span class="badge badge-warning" id="lblCartCount">
                                 {{ isset($countcart) ? $countcart : 0 }}
                             </span>
+                            @endif
                         </div>
                     </li>
                     <li class="nav-item">
                         <div class="d-flex">
                             <a class="nav-link" href="{{ 'wishlist' }}"><i class="text-primary fa fa-heart"></i></a>
+                            @if ($countWishlist>0)
                             <span class="badge badge-warning wishlist_count" id="lblCartCount">
-                                {{-- {{ isset($countcart) ? $countcart : 0 }} --}}
-                                0
+                                {{ isset($countWishlist) ? $countWishlist : 0 }}
+
                             </span>
+                            @endif
                         </div>
                     </li>
 

@@ -4,7 +4,7 @@
 @section('content')
 <div class="py-3 mb-2 shadow-sm bg-warning border-top rounded">
     <div class="container">
-        <div class="mb-0">Collections / <a href="{{ url('view_category/'. $productdetail->category->id) }}">{{ $productdetail->category->name }}</a>/ {{ $productdetail->name }}</div>
+        <div class="mb-0" style="font-size: 26px"><a href="{{ url('/') }} " >Home</a>  / <a href="{{ url('view_category/'. $productdetail->category->id) }}" class="bartitle">{{ $productdetail->category->name }}</a>/ {{ $productdetail->name }}</div>
     </div>
 </div>
 
