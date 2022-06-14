@@ -33,7 +33,7 @@
                             <input type="text" name="quantity" value="1" class="form-control prod_qty">
                             <button class="input-group-text  increment-btn">+</button>
                         </div>
-                        @php $total+=$item->products->selling_price * $item->prod_qty @endphp
+                        {{-- @php $total+=$item->products->selling_price * $item->prod_qty @endphp --}}
                     @else
                         <h6 style="color: red;">Out of stock</h6>
                     @endif
